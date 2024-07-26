@@ -48,6 +48,9 @@ class FluidNavBarItem extends StatefulWidget {
   /// The delay factor of the animations ( < 1 is faster, > 1 is slower)
   final double animationFactor;
 
+  ///  The Name of the Package the asset to be used from.
+  final String? package;
+
   FluidNavBarItem(
     this.svgPath,
     this.icon,
@@ -58,6 +61,7 @@ class FluidNavBarItem extends StatefulWidget {
     this.backgroundColor,
     this.scaleFactor,
     this.animationFactor,
+    this.package,
   )   : assert(scaleFactor >= 1.0),
         assert(svgPath == null || icon == null,
             'Cannot provide both an iconPath and an icon.'),
@@ -180,6 +184,7 @@ class _FluidNavBarItemState extends State<FluidNavBarItem>
                       width: _iconSize,
                       height: _iconSize * scaleAnimation.value,
                       colorBlendMode: BlendMode.srcIn,
+                      package: widget.package,
                     )
                   : Icon(
                       widget.icon,
@@ -199,6 +204,7 @@ class _FluidNavBarItemState extends State<FluidNavBarItem>
                         width: _iconSize,
                         height: _iconSize * scaleAnimation.value,
                         colorBlendMode: BlendMode.srcIn,
+                        package: widget.package,
                       )
                     : Icon(
                         widget.icon,

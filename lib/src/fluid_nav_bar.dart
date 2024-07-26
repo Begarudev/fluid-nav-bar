@@ -174,6 +174,7 @@ class _FluidNavBarState extends State<FluidNavBar> with TickerProviderStateMixin
                   Colors.white,
               widget.scaleFactor,
               widget.animationFactor,
+              entry.value.package,
             ),
           ),
         )
