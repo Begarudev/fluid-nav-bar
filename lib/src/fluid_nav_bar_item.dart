@@ -37,7 +37,10 @@ class FluidNavBarItem extends StatefulWidget {
   final Color unselectedForegroundColor;
 
   /// The background color of the item
-  final Color backgroundColor;
+  final Color selectedBackgroundColor;
+
+  /// The background color of the item
+  final Color unselectedBackgroundColor;
 
   /// The temporary SVG scale used when the item pop
   final double scaleFactor;
@@ -58,7 +61,8 @@ class FluidNavBarItem extends StatefulWidget {
     this.onTap,
     this.selectedForegroundColor,
     this.unselectedForegroundColor,
-    this.backgroundColor,
+    this.selectedBackgroundColor,
+    this.unselectedBackgroundColor,
     this.scaleFactor,
     this.animationFactor,
     this.package,
@@ -170,7 +174,7 @@ class _FluidNavBarItemState extends State<FluidNavBarItem>
           margin: EdgeInsets.all(ne.width / 2 - _iconSize),
           constraints: BoxConstraints.tight(Size.square(_iconSize * 2)),
           decoration: ShapeDecoration(
-            color: widget.backgroundColor,
+            color: _selected ? widget.selectedBackgroundColor : widget.unselectedBackgroundColor,
             shape: CircleBorder(),
           ),
           transform: Matrix4.translationValues(0, -_yOffsetAnimation.value, 0),
