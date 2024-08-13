@@ -1,6 +1,4 @@
 import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
-import 'package:fluid_bottom_nav_bar/src/fluid_nav_bar_icon.dart';
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -174,7 +172,9 @@ class _FluidNavBarItemState extends State<FluidNavBarItem>
           margin: EdgeInsets.all(ne.width / 2 - _iconSize),
           constraints: BoxConstraints.tight(Size.square(_iconSize * 2)),
           decoration: ShapeDecoration(
-            color: _selected ? widget.selectedBackgroundColor : widget.unselectedBackgroundColor,
+            color: _selected
+                ? widget.selectedBackgroundColor
+                : widget.unselectedBackgroundColor,
             shape: CircleBorder(),
           ),
           transform: Matrix4.translationValues(0, -_yOffsetAnimation.value, 0),
